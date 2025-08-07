@@ -1,0 +1,87 @@
+/* إعدادات أساسية */
+body {
+  font-family: 'Tahoma', sans-serif;
+  background-color: #f4f4f4;
+  padding: 20px;
+  direction: rtl;
+  margin: 0;
+}
+
+/* العنوان الرئيسي */
+h1 {
+  color: #2c3e50;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* أزرار التبويبات */
+.tab-buttons {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.tab-buttons button {
+  margin: 5px;
+  padding: 10px 15px;
+  cursor: pointer;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  transition: background-color 0.3s;
+  font-size: 14px;
+}
+
+.tab-buttons button:hover {
+  background-color: #2980b9;
+}
+
+/* صندوق المحتوى */
+.tab-content {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #ccc;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* العنوان داخل كل سنة دراسية */
+.tab-content h2 {
+  color: #34495e;
+  margin-bottom: 15px;
+}
+
+/* قائمة الصفوف */
+.tab-content ul {
+  list-style: none;
+  padding: 0;
+}
+
+.tab-content li {
+  background-color: #ecf0f1;
+  padding: 10px;
+  margin: 5px 0;
+  border-radius: 6px;
+}
+
+/* زر إضافة صف */
+.add-class {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.add-class button {
+  background-color: #2ecc71;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-size: 14px;
+}
+
+.add-class button:hover {
+  background-color: #27ae60;
+}
