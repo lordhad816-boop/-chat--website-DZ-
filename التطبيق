@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>منصة الدراسة الجماعية</title>
+  <style>
+    body {
+      font-family: 'Tahoma', sans-serif;
+      background-color: #f4f4f4;
+      padding: 20px;
+      direction: rtl;
+    }
+    h1 {
+      color: #2c3e50;
+    }
+    .tab-buttons button {
+      margin: 5px;
+      padding: 10px 15px;
+      cursor: pointer;
+      background-color: #3498db;
+      color: white;
+      border: none;
+      border-radius: 5px;
+    }
+    .tab-content {
+      margin-top: 20px;
+      background-color: #fff;
+      padding: 15px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px #ccc;
+    }
+    ul {
+      padding-right: 20px;
+    }
+    .add-class {
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>📚 منصة الدراسة الجماعية</h1>
+
+  <div class="tab-buttons" id="year-tabs">
+    <!-- سيتم إنشاء الأزرار تلقائيًا -->
+  </div>
+
+  <div class="tab-content" id="content">
+    اختر سنة دراسية لعرض الصفوف.
+  </div>
+
+  <script>
+    const years = [
+      "1 متوسط", "2 متوسط", "3 متوسط",
+      "1 ثانوي", "2 ثانوي",
+      "3 ثانوي علوم تجريبية",
+      "3 ثانوي رياضيات / تقني رياضي / لغات أجنبية"
+    ];
+
+    const classesData = {};
+
+    const yearTabs = document.getElementById('year-tabs');
+    const content = document.getElementById('content');
+
+    years.forEach((year, index) => {
+      const btn = document.createElement('button');
+      btn.textContent = year;
+      btn.onclick = () => showYearTab(year);
+      yearTabs.appendChild(btn);
+    });
+
+    function showYearTab(year) {
+      const classes = classesData[year] || [];
+      let html = `<h2>${year}</h2>`;
+      html += '<ul>';
+      classes.forEach((cls, i) => {
+        html += `<li>🏫 ${cls.school} - قسم ${cls.section}</li>`;
+      });
+      html += '</ul>';
+      html += `
+        <div class="add-class">
+          <button onclick="addClass('${year}')">➕ إنشاء صف جديد</button>
+        </div>
+      `;
+      content.innerHTML = html;
+    }
+
+    function addClass(year) {
+      const school = prompt("أدخل اسم المدرسة:");
+      const section = prompt("أدخل رقم القسم:");
+      if (!school || !section) return;
+      if (!classesData[year]) classesData[year] = [];
+      classesData[year].push({ school, section });
+      showYearTab(year);
+    }
+  </script>
+
+</body>
+</html>
